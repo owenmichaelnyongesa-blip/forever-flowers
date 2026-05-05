@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Forever Flowers — Handmade floral arrangements in Nairobi. Fresh bouquets, romantic sets, flower buckets. Order directly on WhatsApp."/>
+  <meta name="keywords" content="flowers Nairobi, bouquets Kenya, handmade flowers, flower delivery, tulips, roses"/>
+  <title>Forever Flowers — Handmade with Love 🌸</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- ✏️ Change the page title above if needed -->
+</head>
+<body>
+
+<!-- ═══ LOADER ════════════════════════════════════════════ -->
+<div id="loader">
+  <div class="loader-flower">🌸</div>
+  <div class="loader-text">Forever Flowers</div>
+</div>
+
+<!-- ═══ FLOATING WHATSAPP BUTTON ═════════════════════════ -->
+<a href="https://wa.me/254790022080" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═══ BACK TO TOP ═══════════════════════════════════════ -->
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- ═══ MOBILE NAV ════════════════════════════════════════ -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="closeMenu">✕</button>
+  <a href="#about"     class="mob-link">About</a>
+  <a href="#products"  class="mob-link">Shop</a>
+  <a href="#why"       class="mob-link">Why Us</a>
+  <a href="#builder"   class="mob-link">Custom Bouquet</a>
+  <a href="#contact"   class="mob-link">Contact</a>
+</div>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-brand">Forever <span>Flowers</span></div>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#builder">Custom Bouquet</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    <a href="https://wa.me/254790022080" target="_blank" class="nav-wa">
+      📞 Order on WhatsApp
+    </a>
+  </div>
+
+  <button class="hamburger" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ SEASONAL BANNER ═══════════════════════════════════ -->
+<!-- ✏️ Edit the text below to change the banner message -->
+<div class="seasonal-banner">
+  🌸 Mother's Day Special — Order 3 days in advance · Free delivery on orders over KSh 3,000
+</div>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Floating petals (decorative) -->
+  <div class="hero-petal">🌸</div>
+  <div class="hero-petal">🌷</div>
+  <div class="hero-petal">🌺</div>
+  <div class="hero-petal">🌼</div>
+  <div class="hero-petal">🌹</div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Karibu Forever Flowers</div>
+
+      <h1 class="hero-title">
+        Handmade<br/>
+        <em>with</em>
+        <strong>Love 🌸</strong>
+      </h1>
+
+      <p class="hero-sub">
+        Fresh, unique, and everlasting floral art — crafted by hand, delivered with care.
+        Order directly on WhatsApp, no hassle.
+      </p>
+
+      <div class="hero-btns">
+        <a href="https://wa.me/254790022080" target="_blank" class="btn btn-wa-green">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Shop on WhatsApp
+        </a>
+        <a href="#products" class="btn btn-outline">View Collection</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-num">500+</span>
+          <span class="trust-label">Happy Customers</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">100%</span>
+          <span class="trust-label">Handmade</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">Same Day</span>
+          <span class="trust-label">WhatsApp Orders</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img class="hero-img-main"
+           src="https://images.unsplash.com/photo-1487530811015-780780169993?w=800&q=80"
+           alt="Beautiful handmade flower arrangement by Forever Flowers"/>
+      <img class="hero-img-float"
+           src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=400&q=80"
+           alt="Romantic tulip bouquet"/>
+      <div class="hero-badge-float">✿ Handmade<br/>Just for You</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ══════════════════════════════════════════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-img-wrap reveal">
+        <img class="about-img"
+             src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+             alt="Florist carefully arranging flowers by hand"/>
+        <div class="about-tag">Est. with Love 🌸</div>
+      </div>
+
+      <div class="about-text reveal">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Made by hand.<br/><em>Felt by heart.</em></h2>
+
+        <p>We are a small, <strong>passionate team</strong> of flower lovers based in Nairobi. Every arrangement we create is crafted by hand — no two are exactly alike, because we believe every customer deserves something truly unique.</p>
+
+        <p>Our flowers go <strong>from garden to gift</strong>, sourced as locally and sustainably as possible. We work with fresh, seasonal blooms to ensure your arrangements are always vibrant and long-lasting.</p>
+
+        <p>Whether it's a birthday surprise, a romantic gesture, or just brightening someone's day — we pour love into every petal.</p>
+
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="feat-icon">🌱</div>
+            <div class="feat-text">
+              <div class="feat-title">Sustainably Sourced</div>
+              <div class="feat-desc">Local flowers where possible, always fresh and seasonal.</div>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">✿</div>
+            <div class="feat-text">
+              <div class="feat-title">Uniquely Handcrafted</div>
+              <div class="feat-desc">No two arrangements are the same — each one is made just for you.</div>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">💬</div>
+            <div class="feat-text">
+              <div class="feat-title">Personal Service</div>
+              <div class="feat-desc">Order, customise, and ask questions directly on WhatsApp.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS ═══════════════════════════════════════════ -->
+<section id="products" class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Our Collection</div>
+      <h2 class="section-title">Fresh <em>Arrangements</em></h2>
+      <p style="color:var(--muted);margin-top:0.8rem;font-size:0.95rem;font-weight:300">
+        Every piece handmade with care. Tap any product to inquire on WhatsApp.
+      </p>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="product-filters">
+      <button class="filter-btn active" data-filter="all">All Products</button>
+      <button class="filter-btn" data-filter="bouquet">Bouquets</button>
+      <button class="filter-btn" data-filter="tulips">Tulips</button>
+      <button class="filter-btn" data-filter="romantic">Romantic</button>
+      <button class="filter-btn" data-filter="gift">Gift Sets</button>
+    </div>
+
+    <!-- Products rendered by script.js from products.js -->
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ═══ WHY CHOOSE US ══════════════════════════════════════ -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center;color:rgba(255,255,255,0.5)">Our Promise</div>
+      <h2 class="section-title" style="color:white">Why Choose <em>Us</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">✿</div>
+        <div class="why-title">Handmade Just for You</div>
+        <div class="why-desc">Every arrangement is crafted by hand with care and attention to detail.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🚚</div>
+        <div class="why-title">Free Delivery</div>
+        <!-- ✏️ Change the city/area and minimum order amount below -->
+        <div class="why-desc">Free delivery within Nairobi on orders over KSh 3,000.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Same-Day WhatsApp Orders</div>
+        <div class="why-desc">Order, customise, and confirm in minutes via WhatsApp chat.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🎨</div>
+        <div class="why-title">Custom Requests Welcome</div>
+        <div class="why-desc">Have a vision? We'll bring it to life — just describe it to us.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ════════════════════════════════════════════ -->
+<section id="reviews" class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Happy Customers</div>
+      <h2 class="section-title">What They <em>Say</em></h2>
+    </div>
+    <!-- Reviews rendered by script.js from products.js -->
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- ═══ BOUQUET BUILDER ════════════════════════════════════ -->
+<section id="builder" class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Design Your Own</div>
+      <h2 class="section-title">Build Your <em>Bouquet</em></h2>
+      <p style="color:var(--muted);margin-top:0.8rem;font-size:0.95rem;font-weight:300">
+        Pick your flowers and we'll craft something magical for you.
+      </p>
+    </div>
+
+    <div class="builder-box reveal">
+      <div class="builder-title">✿ Custom Bouquet Request</div>
+      <div class="builder-sub">Select your flowers, fill in your details, and we'll send you a quote on WhatsApp.</div>
+
+      <!-- Flower checkboxes -->
+      <div class="flowers-grid">
+        <div>
+          <input type="checkbox" class="flower-check" id="f-roses" value="Roses">
+          <label class="flower-label" for="f-roses"><span>🌹</span>Roses</label>
+        </div>
+        <div>
+          <input type="checkbox" class="flower-check" id="f-tulips" value="Tulips">
+          <label class="flower-label" for="f-tulips"><span>🌷</span>Tulips</label>
+        </div>
+        <div>
+          <input type="checkbox" class="flower-check" id="f-sunflowers" value="Sunflowers">
+          <label class="flower-label" for="f-sunflowers"><span>🌻</span>Sunflowers</label>
+        </div>
+        <div>
+          <input type="checkbox" class="flower-check" id="f-lavender" value="Lavender">
+          <label class="flower-label" for="f-lavender"><span>💜</span>Lavender</label>
+        </div>
+        <div>
+          <input type="checkbox" class="flower-check" id="f-lilies" value="Lilies">
+          <label class="flower-label" for="f-lilies"><span>🌺</span>Lilies</label>
+        </div>
+        <div>
+          <input type="checkbox" class="flower-check" id="f-mixed" value="Mixed Blooms">
+          <label class="flower-label" for="f-mixed"><span>🌸</span>Mixed</label>
+        </div>
+      </div>
+
+      <form class="builder-form" id="builderForm">
+        <div class="form-row-2">
+          <input type="text" id="builderName" class="form-input" placeholder="Your name (optional)"/>
+          <input type="date" id="builderDate" class="form-input"/>
+        </div>
+        <input type="text" id="builderNotes" class="form-input" placeholder="Any special notes? (colour, occasion, budget...)"/>
+        <button type="submit" class="btn btn-rose" style="align-self:flex-start">
+          Send Request on WhatsApp 🌸
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CARE INSTRUCTIONS ══════════════════════════════════ -->
+<section id="care" class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Flower Care</div>
+      <h2 class="section-title">Keep Your Flowers <em>Fresh</em></h2>
+    </div>
+
+    <div class="care-tabs">
+      <button class="care-tab active" data-target="care-fresh">Fresh Flowers</button>
+      <button class="care-tab" data-target="care-dried">Dried Flowers</button>
+      <button class="care-tab" data-target="care-preserved">Preserved Roses</button>
+    </div>
+
+    <div class="care-content active" id="care-fresh">
+      <div class="care-grid">
+        <div class="care-card reveal">
+          <div class="care-icon">💧</div>
+          <div class="care-title">Change Water Daily</div>
+          <div class="care-text">Replace the water every day and add a little sugar or flower food to keep blooms vibrant longer.</div>
+        </div>
+        <div class="care-card reveal">
+          <div class="care-icon">✂️</div>
+          <div class="care-title">Trim the Stems</div>
+          <div class="care-text">Cut 1–2 cm off the stems at an angle every 2 days. This helps them absorb water better.</div>
+        </div>
+        <div class="care-card reveal">
+          <div class="care-icon">🌡️</div>
+          <div class="care-title">Keep Cool</div>
+          <div class="care-text">Avoid direct sunlight and heat. A cool spot away from fruit bowls extends freshness significantly.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="care-content" id="care-dried">
+      <div class="care-grid">
+        <div class="care-card reveal">
+          <div class="care-icon">☀️</div>
+          <div class="care-title">Keep Away from Sunlight</div>
+          <div class="care-text">Direct sun will fade the colours. Display in a bright but shaded spot for the best results.</div>
+        </div>
+        <div class="care-card reveal">
+          <div class="care-icon">💨</div>
+          <div class="care-title">Dust Gently</div>
+          <div class="care-text">Use a soft brush or low-pressure hair dryer on cool setting to remove dust periodically.</div>
+        </div>
+        <div class="care-card reveal">
+          <div class="care-icon">🚫</div>
+          <div class="care-title">Avoid Moisture</div>
+          <div class="care-text">Keep dried flowers away from bathrooms or kitchens where humidity can cause mould.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="care-content" id="care-preserved">
+      <div class="care-grid">
+        <div class="care-card reveal">
+          <div class="care-icon">🚫</div>
+          <div class="care-title">No Water Needed</div>
+          <div class="care-text">Preserved roses are treated and require no water at all. Simply display and enjoy for months.</div>
+        </div>
+        <div class="care-card reveal">
+          <div class="care-icon">🧤</div>
+          <div class="care-title">Handle with Care</div>
+          <div class="care-text">Avoid touching the petals often. The natural oils from hands can affect the preservation.</div>
+        </div>
+        <div class="care-card reveal">
+          <div class="care-icon">📦</div>
+          <div class="care-title">Keep in the Box</div>
+          <div class="care-text">When not displaying, store in the original box away from direct sunlight and humidity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INSTAGRAM PLACEHOLDER ═════════════════════════════ -->
+<section id="instagram">
+  <div class="container">
+    <div class="section-label" style="justify-content:center">Follow Our Journey</div>
+    <h2 class="section-title" style="margin-bottom:0.5rem">Find Us on <em>Instagram</em></h2>
+    <p style="color:var(--muted);font-size:0.9rem;font-weight:300">
+      <!-- ✏️ Replace @foreverflowers_ke with your real Instagram handle -->
+      @foreverflowers_ke &nbsp;·&nbsp; Connect your Instagram feed here later
+    </p>
+    <!-- ✏️ Replace these placeholders with real Instagram embed or photos -->
+    <div class="ig-grid">
+      <div class="ig-cell">🌸</div><div class="ig-cell">🌷</div>
+      <div class="ig-cell">🌹</div><div class="ig-cell">🌺</div>
+      <div class="ig-cell">🌻</div><div class="ig-cell">💐</div>
+    </div>
+    <p style="color:var(--muted);font-size:0.8rem;margin-top:1.5rem">
+      <!-- ✏️ Remove this note once you connect a real Instagram feed -->
+      📸 Replace the placeholders above with your actual Instagram photos or embed
+    </p>
+  </div>
+</section>
+
+<!-- ═══ CONTACT & FOOTER ═══════════════════════════════════ -->
+<footer id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="reveal">
+        <div class="contact-brand">Forever <em>Flowers</em></div>
+        <p class="contact-desc">
+          Handmade floral arrangements crafted with love in Nairobi, Kenya.
+          Order directly on WhatsApp — quick, easy, and personal.
+        </p>
+
+        <div class="contact-links">
+          <a href="https://wa.me/254790022080" target="_blank" class="contact-link">
+            <div class="contact-link-icon">📞</div>
+            <div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:2px">WhatsApp Orders</div>
+              <div>0790 022 080</div>
+            </div>
+          </a>
+          <!-- ✏️ Replace with your actual email once you have one -->
+          <a href="mailto:hello@foreverflowers.co.ke" class="contact-link">
+            <div class="contact-link-icon">📧</div>
+            <div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:2px">Email (optional)</div>
+              <div>hello@foreverflowers.co.ke</div>
+            </div>
+          </a>
+          <!-- ✏️ Add your location/area -->
+          <div class="contact-link">
+            <div class="contact-link-icon">📍</div>
+            <div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:2px">Location</div>
+              <div>Nairobi, Kenya</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/254790022080" target="_blank" class="btn btn-wa-green">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Start Ordering Now
+        </a>
+      </div>
+
+      <!-- Special Request Form -->
+      <div class="reveal">
+        <form class="special-form" id="specialForm">
+          <h3>🌸 Special Request</h3>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1rem;font-weight:300">
+            Have a specific occasion or flower in mind? Tell us and we'll create something magical.
+          </p>
+          <input type="text" id="spName" class="form-input-dark" placeholder="Your name"/>
+          <input type="text" id="spFlowers" class="form-input-dark" placeholder="Occasion / flower preference (e.g. birthday, roses)"/>
+          <div class="form-row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <input type="date" id="spDate" class="form-input-dark" placeholder="Date needed"/>
+            <input type="tel" id="spPhone" class="form-input-dark" placeholder="Your phone number"/>
+          </div>
+          <button type="submit" class="btn btn-rose" style="align-self:flex-start">
+            Send via WhatsApp 🌸
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <!-- ✏️ Update the year if needed -->
+      <div class="footer-copy">© 2025 Forever Flowers. All rights reserved.</div>
+      <div class="footer-love">Made with <span>🌸</span> in Nairobi, Kenya</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts — load products.js first, then script.js -->
+<script src="products.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
