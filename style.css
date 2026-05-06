@@ -459,14 +459,18 @@ nav.scrolled {
   background: var(--rose);
   color: white;
   border: none; border-radius: 100px;
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1rem;
   font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
   cursor: pointer; letter-spacing: 0.3px;
   transition: all var(--transition);
   display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  text-decoration: none; /* for <a> tag */
+  -webkit-tap-highlight-color: transparent; /* remove grey flash on mobile tap */
+  touch-action: manipulation; /* faster tap response on mobile */
 }
-.btn-inquire:hover { background: var(--rose2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,114,106,0.3); }
-.btn-inquire svg { width: 14px; height: 14px; fill: white; }
+.btn-inquire:hover,
+.btn-inquire:active { background: var(--rose2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,114,106,0.3); color: white; }
+.btn-inquire svg { width: 15px; height: 15px; fill: white; flex-shrink: 0; }
 
 /* ─── WHY US ─────────────────────────────────────────────────── */
 #why { background: var(--bark2); color: white; }
