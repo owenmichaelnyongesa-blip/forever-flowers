@@ -1,0 +1,241 @@
+============================================================
+  FOREVER FLOWERS v2 — COMPLETE SETUP GUIDE
+  Backend + M-Pesa Payments + Admin Dashboard
+  Prepared by: Get.Techy254 | 0736 566 870
+============================================================
+
+📁 YOUR NEW FILES
+─────────────────────────────────────────────────────────
+  index.html          → Main website (updated with cart + checkout)
+  style.css           → Original styles
+  cart-checkout.css   → Cart and checkout styles (NEW)
+  script.js           → Main script (now reads from database)
+  checkout.js         → Cart, M-Pesa, Pay on Delivery (NEW)
+  supabase-config.js  → Your database keys (edit this!)
+  admin.html          → Your private admin dashboard (NEW)
+  admin.css           → Admin styles (NEW)
+  admin.js            → Admin logic (NEW)
+  database-setup.sql  → Run this once in Supabase
+  api/
+  └── webhook.js      → Paystack payment confirmation (NEW)
+  SETUP_GUIDE.txt     → This file
+
+
+════════════════════════════════════════════════════════
+  STEP 1 — SET UP SUPABASE (Your Database)
+════════════════════════════════════════════════════════
+
+1. Go to https://supabase.com → click "Start your project"
+2. Sign up with GitHub or email (free)
+3. Click "New Project":
+   • Name: forever-flowers
+   • Password: create a strong password (save it!)
+   • Region: choose East Africa or nearest
+   • Click "Create new project" → wait ~2 minutes
+
+4. Once ready, go to SQL Editor (left sidebar)
+5. Click "New Query"
+6. Open the file "database-setup.sql" from your files
+7. Copy ALL the text → paste into the SQL Editor
+8. Click "Run" → you should see "Success"
+   ✅ Your products and orders tables are now created!
+
+9. Get your API keys:
+   → Left sidebar → Settings → API
+   → Copy "Project URL"  (looks like https://xxx.supabase.co)
+   → Copy "anon public" key (long text starting with eyJ...)
+
+
+════════════════════════════════════════════════════════
+  STEP 2 — ADD YOUR KEYS TO supabase-config.js
+════════════════════════════════════════════════════════
+
+Open supabase-config.js and replace:
+
+  SUPABASE_URL = "YOUR_SUPABASE_URL_HERE"
+  → with your Project URL
+
+  SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY_HERE"
+  → with your anon public key
+
+Leave PAYSTACK_PUBLIC_KEY for now (Step 4).
+Save the file.
+
+
+════════════════════════════════════════════════════════
+  STEP 3 — CREATE YOUR ADMIN LOGIN
+════════════════════════════════════════════════════════
+
+1. In Supabase → left sidebar → Authentication
+2. Click "Add User" → "Create new user"
+3. Enter:
+   • Email: foreverflowers@gmail.com (or any email)
+   • Password: create a strong password
+   • Click "Create User"
+
+This email + password is what you use to log into admin.html.
+
+✅ Only this account can log into the admin dashboard.
+✅ Nobody else can access it without the password.
+
+
+════════════════════════════════════════════════════════
+  STEP 4 — SET UP PAYSTACK (M-Pesa Payments)
+════════════════════════════════════════════════════════
+
+1. Go to https://paystack.com → click "Create free account"
+2. Choose Kenya as your country
+3. Complete business verification (takes 1-3 days for live mode)
+4. For testing NOW, use TEST MODE:
+
+   → Dashboard → Settings → API Keys & Webhooks
+   → Copy "Test Public Key" (starts with pk_test_)
+
+5. Open supabase-config.js → replace:
+   PAYSTACK_PUBLIC_KEY = "YOUR_PAYSTACK_PUBLIC_KEY_HERE"
+   → with your test public key
+
+6. To go LIVE (accept real M-Pesa):
+   → Complete Paystack KYC verification
+   → Switch to "Live" keys in their dashboard
+   → Replace pk_test_ with pk_live_ in supabase-config.js
+
+
+════════════════════════════════════════════════════════
+  STEP 5 — SET UP PAYSTACK WEBHOOK (Payment Confirmation)
+════════════════════════════════════════════════════════
+
+The webhook confirms when M-Pesa payment is received.
+
+1. In Vercel → your forever-flowers project → Settings
+2. → Environment Variables → Add these:
+   Name: PAYSTACK_SECRET_KEY
+   Value: your Paystack SECRET key (sk_test_ or sk_live_)
+
+   Name: SUPABASE_URL
+   Value: your Supabase project URL
+
+   Name: SUPABASE_SERVICE_KEY
+   Value: from Supabase → Settings → API → "service_role" key
+   ⚠️ KEEP THIS SECRET — never share it or put it in code!
+
+3. In Paystack Dashboard → Settings → API & Webhooks:
+   → Webhook URL: https://your-site.vercel.app/api/webhook
+   → Save
+
+✅ Now when a customer pays via M-Pesa, your order in the
+   database automatically updates to "Paid".
+
+
+════════════════════════════════════════════════════════
+  STEP 6 — UPLOAD TO GITHUB & DEPLOY
+════════════════════════════════════════════════════════
+
+1. Go to your GitHub repo (forever-flowers)
+2. Upload ALL the new files:
+   • index.html (replaces old one)
+   • style.css (keep old one — it still works)
+   • cart-checkout.css (new file)
+   • script.js (replaces old one)
+   • checkout.js (new file)
+   • supabase-config.js (new file — has your keys)
+   • admin.html (new file)
+   • admin.css (new file)
+   • admin.js (new file)
+   • api/webhook.js (create api folder first)
+
+3. DELETE these old files (no longer needed):
+   • products.js (products now come from database)
+
+4. Vercel will auto-deploy → your site is live!
+
+⚠️ IMPORTANT SECURITY NOTE:
+   supabase-config.js contains your ANON key — this is
+   safe to be public (Supabase is designed for this).
+   NEVER put your SERVICE ROLE KEY or Paystack SECRET KEY
+   in any file uploaded to GitHub. Those go ONLY in
+   Vercel Environment Variables.
+
+
+════════════════════════════════════════════════════════
+  STEP 7 — ACCESS YOUR ADMIN DASHBOARD
+════════════════════════════════════════════════════════
+
+Go to: https://your-site.vercel.app/admin.html
+
+Login with the email + password you created in Step 3.
+
+From the dashboard you can:
+✅ Add new products (with name, price, image, badge)
+✅ Edit existing product prices and details
+✅ Delete products
+✅ View all orders (M-Pesa + Pay on Delivery)
+✅ See total revenue
+✅ Update order status (pending → delivered)
+
+Nobody else can access this page without the password.
+
+
+════════════════════════════════════════════════════════
+  HOW CUSTOMERS ORDER (The New Flow)
+════════════════════════════════════════════════════════
+
+1. Customer visits the website
+2. Browses products → clicks "Add to Cart" 🛒
+3. Cart icon shows their items count
+4. Clicks cart → reviews items
+5. Clicks "Proceed to Checkout"
+6. Fills in: Name, Phone, Email (optional)
+7. Chooses: Delivery (with location) or Pickup
+8. Reviews order summary with delivery fee
+9. Chooses payment:
+   → M-Pesa: enters phone, receives STK push, confirms
+   → Pay on Delivery: order saved, team confirms via WhatsApp
+10. Confirmation screen shown
+11. "Confirm on WhatsApp" button to chat with the shop
+
+Throughout, the "Inquire on WhatsApp" button remains
+on every product card for customers who prefer to chat first.
+
+
+════════════════════════════════════════════════════════
+  ADDING YOUR REAL PRODUCT PHOTOS
+════════════════════════════════════════════════════════
+
+Option 1 — Use image URL:
+• Upload your photo to https://imgbb.com (free)
+• Copy the "Direct link"
+• In Admin → Edit product → paste link in "Image URL" field
+
+Option 2 — Upload to GitHub:
+• Add your image file to your GitHub repo
+• In Admin → Image URL → type just the filename: roses.jpg
+
+Option 3 — From your phone:
+• Take photo → upload to imgbb.com → copy link → paste in admin
+
+
+════════════════════════════════════════════════════════
+  PRICING FOR THIS UPGRADE
+════════════════════════════════════════════════════════
+
+Suggested charge to client: KSh 5,000 – 8,000 extra
+This covers:
+• Supabase backend integration
+• Admin dashboard with full product control
+• M-Pesa payment via Paystack
+• Pay on Delivery option with location
+• Order management system
+• Paystack webhook setup
+
+
+════════════════════════════════════════════════════════
+  NEED HELP?
+════════════════════════════════════════════════════════
+
+Contact your web designer:
+📞 WhatsApp: 0736 566 870
+📧 Email: get.techy254@gmail.com
+🌐 Get.Techy254
+
+============================================================

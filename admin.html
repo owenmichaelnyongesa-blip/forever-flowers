@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forever Flowers — Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css"/>
+  <!-- ✏️ IMPORTANT: Replace YOUR_SUPABASE_URL and YOUR_KEY below in supabase-config.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+
+<!-- ═══ LOGIN ══════════════════════════════════════════════ -->
+<div id="loginPage">
+  <div class="login-card">
+    <div class="login-logo">Forever <span>Flowers</span></div>
+    <div class="login-sub">Admin Dashboard — Staff Only</div>
+
+    <div class="login-form">
+      <input type="email" id="loginEmail" class="form-input" placeholder="Email address"/>
+      <input type="password" id="loginPassword" class="form-input" placeholder="Password"
+             onkeydown="if(event.key==='Enter') login()"/>
+      <button class="btn-login" onclick="login()">Sign In →</button>
+      <div class="login-error" id="loginError"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DASHBOARD ══════════════════════════════════════════ -->
+<div id="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">Forever <span>Flowers</span></div>
+    <div class="sidebar-sub">Admin Panel</div>
+
+    <div id="navOverview"  class="nav-item active"  onclick="switchTab('overview')">
+      <span class="nav-icon">📊</span> Overview
+    </div>
+    <div id="navProducts"  class="nav-item"          onclick="switchTab('products')">
+      <span class="nav-icon">🌸</span> Products
+    </div>
+    <div id="navOrders"    class="nav-item"          onclick="switchTab('orders')">
+      <span class="nav-icon">📦</span> Orders
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-user" id="userEmail">admin</div>
+      <button class="btn-logout" onclick="logout()">Sign Out</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-title" id="tabHeading">Overview</div>
+      <div class="topbar-date" id="topbarDate"></div>
+    </div>
+
+    <!-- ── OVERVIEW TAB ─────────────────────────────────── -->
+    <div id="tabOverview" class="tab-content active">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🌸</div>
+          <div class="stat-val" id="statProducts">—</div>
+          <div class="stat-label">Total Products</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📦</div>
+          <div class="stat-val" id="statOrders">—</div>
+          <div class="stat-label">Total Orders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-val" id="statPaid">—</div>
+          <div class="stat-label">Paid Orders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-val" id="statRevenue">—</div>
+          <div class="stat-label">Total Revenue</div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">🚀 Quick Actions</div>
+        </div>
+        <div style="padding:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="switchTab('products');openAddProduct()">+ Add New Product</button>
+          <button class="btn btn-outline" onclick="switchTab('orders')">View Orders</button>
+          <a href="index.html" target="_blank" class="btn btn-outline">🌐 View Live Website</a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-head"><div class="section-title">📋 Recent Orders</div></div>
+        <table class="admin-table">
+          <thead><tr><th>#</th><th>Customer</th><th>Total</th><th>Status</th><th>Type</th></tr></thead>
+          <tbody id="recentOrdersTable">
+            <tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📦</div>No orders yet</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── PRODUCTS TAB ──────────────────────────────────── -->
+    <div id="tabProducts" class="tab-content">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">🌸 All Products</div>
+          <button class="btn btn-primary" onclick="openAddProduct()">+ Add Product</button>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Photo</th><th>Name</th><th>Price</th>
+              <th>Badge</th><th>Description</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productsTable">
+            <tr><td colspan="6"><div class="empty-state"><div class="empty-icon">🌸</div>Loading products…</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── ORDERS TAB ────────────────────────────────────── -->
+    <div id="tabOrders" class="tab-content">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">📦 All Orders</div>
+          <select class="form-input" id="orderFilter" onchange="loadOrders()" style="width:auto;padding:0.4rem 0.8rem;font-size:0.85rem">
+            <option value="all">All Status</option>
+            <option value="paid">Paid (M-Pesa)</option>
+            <option value="pod">Pay on Delivery</option>
+            <option value="pending">Pending</option>
+          </select>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr><th>#</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Delivery</th><th>Action</th></tr>
+          </thead>
+          <tbody id="ordersTable">
+            <tr><td colspan="7"><div class="empty-state"><div class="empty-icon">📦</div>Loading orders…</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PRODUCT MODAL ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="modal-title" id="productModalTitle">Add Product</div>
+      <button class="modal-close" onclick="closeProductModal()">✕</button>
+    </div>
+
+    <div id="productForm">
+      <div class="form-group">
+        <label class="form-label">Product Name *</label>
+        <input type="text" id="pName" class="form-input" placeholder="e.g. Romantic Tulips"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Current Price (KSh) *</label>
+          <input type="number" id="pPrice" class="form-input" placeholder="2500"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Original Price (KSh) — for Sale badge</label>
+          <input type="number" id="pOrigPrice" class="form-input" placeholder="Leave blank if no sale"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Image URL or Filename</label>
+        <input type="text" id="pImage" class="form-input" placeholder="https://... or roses.jpg"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Badge</label>
+          <select id="pBadge" class="form-input">
+            <option value="">No Badge</option>
+            <option value="Sale">Sale</option>
+            <option value="New">New</option>
+            <option value="Popular">Popular</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select id="pCategory" class="form-input">
+            <option value="bouquet">Bouquets</option>
+            <option value="tulips">Tulips</option>
+            <option value="romantic">Romantic</option>
+            <option value="gift">Gift Sets</option>
+            <option value="all">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea id="pDescription" class="form-input" placeholder="Short product description…"></textarea>
+      </div>
+      <div style="display:flex;gap:0.8rem;justify-content:flex-end;margin-top:1rem">
+        <button class="btn btn-outline" onclick="closeProductModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveProduct()">💾 Save Product</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ORDER MODAL ═════════════════════════════════════════ -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="modal-title">Order Details</div>
+      <button class="modal-close" onclick="closeOrderModal()">✕</button>
+    </div>
+    <div id="orderModalContent"></div>
+    <div style="display:flex;gap:0.8rem;align-items:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--warm)">
+      <label class="form-label" style="margin:0;white-space:nowrap">Update Status:</label>
+      <select id="orderStatusSelect" class="form-input" style="flex:1">
+        <option value="pending">Pending</option>
+        <option value="paid">Paid (M-Pesa)</option>
+        <option value="pod">Pay on Delivery</option>
+        <option value="delivered">Delivered</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+      <button class="btn btn-primary" onclick="updateOrderStatus()">Update</button>
+      <button class="btn btn-outline" onclick="closeOrderModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="adminToast"></div>
+
+<script src="admin.js"></script>
+
+<script>
+// Override switchTab to update heading
+const _switchTab = switchTab;
+switchTab = function(tab) {
+  _switchTab(tab);
+  const titles = { overview:"Overview", products:"Products", orders:"Orders" };
+  document.getElementById("tabHeading").textContent = titles[tab] || tab;
+};
+</script>
+</body>
+</html>
