@@ -654,7 +654,7 @@ nav.scrolled {
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   nav.scrolled { padding: 0.8rem 1.5rem; }
-  .nav-links, .nav-right { display: none; }
+  .nav-links { display: none; }
   .hamburger { display: flex; }
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-visual { display: none; }
