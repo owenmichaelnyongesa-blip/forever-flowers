@@ -3,50 +3,47 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Forever Flowers â€” Handmade floral arrangements in Nairobi. Order online with M-Pesa or WhatsApp."/>
-  <title>Forever Flowers â€” Handmade with Love ğŸŒ¸</title>
+  <meta name="description" content="Forever Flowers &#x2014; Handmade floral arrangements in Nairobi. Fresh bouquets, romantic sets, flower buckets. Order directly on WhatsApp."/>
+  <meta name="keywords" content="flowers Nairobi, bouquets Kenya, handmade flowers, flower delivery, tulips, roses"/>
+  <title>Forever Flowers &#x2014; Handmade with Love</title>
 
-  <!-- Fonts & Styles -->
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="cart-checkout.css"/>
 
-  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- Paystack -->
   <script src="https://js.paystack.co/v1/inline.js"></script>
-  <!-- Config (must load before script.js and checkout.js) -->
   <script src="supabase-config.js"></script>
 </head>
 <body>
 
-<!-- â•�â•�â•� LOADER â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- LOADER -->
 <div id="loader">
-  <div class="loader-flower">ğŸŒ¸</div>
+  <div class="loader-flower">&#x1F338;</div>
   <div class="loader-text">Forever Flowers</div>
 </div>
 
-<!-- â•�â•�â•� CART TOAST â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- CART TOAST -->
 <div id="cartToast"></div>
 
-<!-- â•�â•�â•� FLOATING WHATSAPP â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- FLOATING WHATSAPP -->
 <a href="https://wa.me/254790022080" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- â•�â•�â•� BACK TO TOP â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
-<button id="backToTop" aria-label="Back to top">â†‘</button>
+<!-- BACK TO TOP -->
+<button id="backToTop" aria-label="Back to top">&#x2191;</button>
 
-<!-- â•�â•�â•� CART OVERLAY + SIDEBAR â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- CART OVERLAY + SIDEBAR -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
 <div class="cart-sidebar" id="cartSidebar">
   <div class="cart-head">
-    <div class="cart-title">ğŸ›’ Your Cart</div>
-    <button class="cart-close" onclick="closeCart()">âœ•</button>
+    <div class="cart-title">&#x1F6D2; Your Cart</div>
+    <button class="cart-close" onclick="closeCart()">&#x2715;</button>
   </div>
   <div class="cart-items" id="cartItemsList">
     <div class="cart-empty">
-      <div style="font-size:3rem">ğŸŒ¸</div>
+      <div style="font-size:3rem">&#x1F338;</div>
       <p>Your cart is empty</p>
       <p style="font-size:0.85rem;opacity:0.7">Add some beautiful flowers!</p>
     </div>
@@ -59,32 +56,28 @@
       </div>
     </div>
     <button class="btn-checkout" id="cartCheckoutBtn" style="display:none" onclick="openCheckout()">
-      Proceed to Checkout â†’
+      Proceed to Checkout &#x2192;
     </button>
   </div>
 </div>
 
-<!-- â•�â•�â•� CHECKOUT MODAL â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- CHECKOUT MODAL -->
 <div class="checkout-overlay" id="checkoutModal">
   <div class="checkout-box">
     <div class="checkout-head">
-      <div class="checkout-title">ğŸŒ¸ Checkout</div>
-      <button class="checkout-close" onclick="closeCheckout()">âœ•</button>
+      <div class="checkout-title">&#x1F338; Checkout</div>
+      <button class="checkout-close" onclick="closeCheckout()">&#x2715;</button>
     </div>
-
-    <!-- Progress -->
     <div class="step-dots">
       <div class="step-dot active"></div>
       <div class="step-line"></div>
       <div class="step-dot"></div>
     </div>
-
     <div class="checkout-body">
 
-      <!-- STEP 1: Details + Delivery -->
+      <!-- STEP 1 -->
       <div class="checkout-step" style="display:block">
         <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--bark2);margin-bottom:1.2rem">Your Details</h3>
-
         <div class="co-row">
           <div>
             <label class="co-label">Full Name *</label>
@@ -95,73 +88,62 @@
             <input type="tel" id="chkPhone" class="co-input" placeholder="0712 345 678"/>
           </div>
         </div>
-
-        <label class="co-label">Email (optional â€” for payment receipt)</label>
+        <label class="co-label">Email (optional)</label>
         <input type="email" id="chkEmail" class="co-input" placeholder="jane@gmail.com"/>
 
         <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--bark2);margin-bottom:1rem">Delivery or Pickup?</h3>
-
         <div class="delivery-toggle">
           <div class="delivery-opt active" id="deliveryBtn" onclick="setDelivery('delivery')">
-            <div class="delivery-opt-icon">ğŸšš</div>
+            <div class="delivery-opt-icon">&#x1F69A;</div>
             <div class="delivery-opt-label">Delivery</div>
             <div class="delivery-opt-sub">We bring it to you</div>
           </div>
           <div class="delivery-opt" id="pickupBtn" onclick="setDelivery('pickup')">
-            <div class="delivery-opt-icon">ğŸ�ª</div>
+            <div class="delivery-opt-icon">&#x1F3EA;</div>
             <div class="delivery-opt-label">Pickup</div>
             <div class="delivery-opt-sub">Collect from our shop</div>
           </div>
         </div>
-
         <div id="locationGroup">
           <label class="co-label">Delivery Location / Area *</label>
           <input type="text" id="chkLocation" class="co-input" placeholder="e.g. Westlands, Kasarani, Kiambu Road..."/>
           <p style="font-size:0.78rem;color:var(--muted);margin-top:-0.7rem;margin-bottom:1rem">
-            ğŸšš Delivery fee: KSh 300 Â· Free on orders over KSh 3,000
+            &#x1F69A; Delivery fee: KSh 300 &nbsp;&middot;&nbsp; Free on orders over KSh 3,000
           </p>
         </div>
-
         <label class="co-label">Special Instructions (optional)</label>
         <textarea class="co-input" id="chkNotes" placeholder="Any special requests? e.g. include a card, specific colours..." style="min-height:70px;resize:none"></textarea>
-
         <div class="checkout-nav">
-          <button class="btn-next" onclick="nextStep()">Review Order â†’</button>
+          <button class="btn-next" onclick="nextStep()">Review Order &#x2192;</button>
         </div>
       </div>
 
-      <!-- STEP 2: Summary + Payment -->
+      <!-- STEP 2 -->
       <div class="checkout-step">
         <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--bark2);margin-bottom:1rem">Order Summary</h3>
-
         <div id="orderSummary" style="background:var(--card);border-radius:14px;padding:1rem;margin-bottom:1.5rem;border:1px solid var(--warm)"></div>
 
         <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--bark2);margin-bottom:1rem">Choose Payment</h3>
-
         <div class="payment-opts">
-          <!-- M-Pesa -->
           <div class="payment-opt mpesa" onclick="payWithMpesa()">
-            <div class="pay-icon">ğŸ“±</div>
+            <div class="pay-icon">&#x1F4F1;</div>
             <div class="pay-info">
               <div class="pay-title">Pay with M-Pesa</div>
-              <div class="pay-sub">Instant STK push to your phone. Safe & secure via Paystack.</div>
+              <div class="pay-sub">Instant STK push to your phone. Safe &amp; secure via Paystack.</div>
             </div>
-            <div class="pay-arrow">â†’</div>
+            <div class="pay-arrow">&#x2192;</div>
           </div>
-
-          <!-- Pay on Delivery -->
           <div class="payment-opt pod" id="podOption" onclick="payOnDelivery()">
-            <div class="pay-icon">ğŸ’µ</div>
+            <div class="pay-icon">&#x1F4B5;</div>
             <div class="pay-info">
               <div class="pay-title">Pay on Delivery</div>
-              <div class="pay-sub">Cash or M-Pesa when your flowers arrive. Available for delivery orders.</div>
+              <div class="pay-sub">Cash or M-Pesa when your flowers arrive.</div>
             </div>
-            <div class="pay-arrow" id="podArrow">â†’</div>
+            <div class="pay-arrow" id="podArrow">&#x2192;</div>
           </div>
         </div>
-
         <div class="checkout-nav">
-          <button class="btn-prev" onclick="prevStep()">â†� Back</button>
+          <button class="btn-prev" onclick="prevStep()">&#x2190; Back</button>
         </div>
       </div>
 
@@ -169,7 +151,7 @@
   </div>
 </div>
 
-<!-- â•�â•�â•� CONFIRMATION MODAL â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- CONFIRMATION MODAL -->
 <div class="confirm-overlay" id="confirmModal">
   <div class="confirm-box">
     <div id="confirmContent"></div>
@@ -177,9 +159,9 @@
   </div>
 </div>
 
-<!-- â•�â•�â•� MOBILE NAV â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-close" id="closeMenu">âœ•</button>
+  <button class="mobile-close" id="closeMenu">&#x2715;</button>
   <a href="#about"    class="mob-link">About</a>
   <a href="#products" class="mob-link">Shop</a>
   <a href="#why"      class="mob-link">Why Us</a>
@@ -187,7 +169,7 @@
   <a href="#contact"  class="mob-link">Contact</a>
 </div>
 
-<!-- â•�â•�â•� NAV â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- NAV -->
 <nav id="navbar">
   <div class="nav-brand">Forever <span>Flowers</span></div>
   <ul class="nav-links">
@@ -198,38 +180,48 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">ğŸŒ™</button>
-    <!-- Cart Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#x1F319;</button>
     <button class="cart-nav-btn" onclick="openCart()">
-      ğŸ›’ Cart
+      &#x1F6D2; Cart
       <span class="cart-count">0</span>
     </button>
-    <a href="https://wa.me/254790022080" target="_blank" class="nav-wa">ğŸ“� WhatsApp</a>
+    <a href="https://wa.me/254790022080" target="_blank" class="nav-wa">
+      &#x1F4DE; WhatsApp
+    </a>
   </div>
   <button class="hamburger" id="menuBtn" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- â•�â•�â•� SEASONAL BANNER â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
-<!-- âœ�ï¸� Edit this text in the admin panel or directly here -->
+<!-- SEASONAL BANNER -->
 <div class="seasonal-banner">
-  ğŸŒ¸ Free delivery on orders over KSh 3,000 Â· M-Pesa payments accepted Â· Order on WhatsApp
+  &#x1F338; Free delivery on orders over KSh 3,000 &nbsp;&middot;&nbsp; M-Pesa payments accepted &nbsp;&middot;&nbsp; Order on WhatsApp
 </div>
 
-<!-- â•�â•�â•� HERO â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-petal">ğŸŒ¸</div><div class="hero-petal">ğŸŒ·</div>
-  <div class="hero-petal">ğŸŒº</div><div class="hero-petal">ğŸŒ¼</div><div class="hero-petal">ğŸŒ¹</div>
+  <div class="hero-petal">&#x1F338;</div>
+  <div class="hero-petal">&#x1F337;</div>
+  <div class="hero-petal">&#x1F33A;</div>
+  <div class="hero-petal">&#x1F33C;</div>
+  <div class="hero-petal">&#x1F339;</div>
 
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">Karibu Forever Flowers</div>
-      <h1 class="hero-title">Handmade<br/><em>with</em><strong>Love ğŸŒ¸</strong></h1>
-      <p class="hero-sub">Fresh, unique, and everlasting floral art â€” crafted by hand, delivered with care. Pay with M-Pesa or WhatsApp.</p>
+      <h1 class="hero-title">
+        Handmade<br/>
+        <em>with</em>
+        <strong>Love &#x1F338;</strong>
+      </h1>
+      <p class="hero-sub">
+        Fresh, unique, and everlasting floral art &#x2014; crafted by hand, delivered with care.
+        Pay with M-Pesa or WhatsApp.
+      </p>
       <div class="hero-btns">
-        <a href="#products" class="btn btn-rose">ğŸŒ¸ Shop Now</a>
+        <a href="#products" class="btn btn-rose">&#x1F338; Shop Now</a>
         <a href="https://wa.me/254790022080" target="_blank" class="btn btn-wa-green">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
@@ -242,43 +234,69 @@
       </div>
     </div>
     <div class="hero-visual">
-      <img class="hero-img-main" src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Beautiful handmade flower arrangement"/>
-      <img class="hero-img-float" src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Romantic tulip bouquet"/>
-      <div class="hero-badge-float">âœ¿ Handmade<br/>Just for You</div>
+      <img class="hero-img-main"
+           src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=800"
+           alt="Beautiful handmade flower arrangement by Forever Flowers"/>
+      <img class="hero-img-float"
+           src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400"
+           alt="Romantic tulip bouquet"/>
+      <div class="hero-badge-float">&#x273F; Handmade<br/>Just for You</div>
     </div>
   </div>
 </section>
 
-<!-- â•�â•�â•� ABOUT â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- ABOUT -->
 <section id="about" class="section">
   <div class="container">
     <div class="about-layout">
       <div class="about-img-wrap reveal">
-        <img class="about-img" src="https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Florist arranging flowers by hand"/>
-        <div class="about-tag">Est. with Love ğŸŒ¸</div>
+        <img class="about-img"
+             src="https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Florist carefully arranging flowers by hand"/>
+        <div class="about-tag">Est. with Love &#x1F338;</div>
       </div>
       <div class="about-text reveal">
         <div class="section-label">Our Story</div>
         <h2 class="section-title">Made by hand.<br/><em>Felt by heart.</em></h2>
-        <p>We are a small, <strong>passionate team</strong> of flower lovers based in Nairobi. Every arrangement we create is crafted by hand â€” no two are exactly alike.</p>
+        <p>We are a small, <strong>passionate team</strong> of flower lovers based in Nairobi. Every arrangement we create is crafted by hand &#x2014; no two are exactly alike.</p>
         <p>Our flowers go <strong>from garden to gift</strong>, sourced as locally and sustainably as possible. Fresh, seasonal, and always vibrant.</p>
         <div class="about-features">
-          <div class="about-feat"><div class="feat-icon">ğŸŒ±</div><div class="feat-text"><div class="feat-title">Sustainably Sourced</div><div class="feat-desc">Local flowers where possible, always fresh and seasonal.</div></div></div>
-          <div class="about-feat"><div class="feat-icon">ğŸ’³</div><div class="feat-text"><div class="feat-title">M-Pesa Payments</div><div class="feat-desc">Pay online securely via M-Pesa STK push â€” fast and safe.</div></div></div>
-          <div class="about-feat"><div class="feat-icon">ğŸšš</div><div class="feat-text"><div class="feat-title">Nairobi Delivery</div><div class="feat-desc">Free delivery on orders over KSh 3,000. Same-day available.</div></div></div>
+          <div class="about-feat">
+            <div class="feat-icon">&#x1F331;</div>
+            <div class="feat-text">
+              <div class="feat-title">Sustainably Sourced</div>
+              <div class="feat-desc">Local flowers where possible, always fresh and seasonal.</div>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">&#x1F4B3;</div>
+            <div class="feat-text">
+              <div class="feat-title">M-Pesa Payments</div>
+              <div class="feat-desc">Pay online securely via M-Pesa STK push &#x2014; fast and safe.</div>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">&#x1F69A;</div>
+            <div class="feat-text">
+              <div class="feat-title">Nairobi Delivery</div>
+              <div class="feat-desc">Free delivery on orders over KSh 3,000. Same-day available.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- â•�â•�â•� PRODUCTS â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- PRODUCTS -->
 <section id="products" class="section">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <div class="section-label" style="justify-content:center">Our Collection</div>
       <h2 class="section-title">Fresh <em>Arrangements</em></h2>
-      <p style="color:var(--muted);margin-top:0.8rem;font-size:0.95rem;font-weight:300">Add to cart and pay with M-Pesa Â· or inquire directly on WhatsApp</p>
+      <p style="color:var(--muted);margin-top:0.8rem;font-size:0.95rem;font-weight:300">
+        Add to cart and pay with M-Pesa &nbsp;&middot;&nbsp; or inquire directly on WhatsApp
+      </p>
     </div>
     <div class="product-filters">
       <button class="filter-btn active" data-filter="all">All Products</button>
@@ -291,7 +309,7 @@
   </div>
 </section>
 
-<!-- â•�â•�â•� WHY â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- WHY -->
 <section id="why" class="section">
   <div class="container">
     <div class="reveal" style="text-align:center">
@@ -299,15 +317,31 @@
       <h2 class="section-title" style="color:white">Why Choose <em>Us</em></h2>
     </div>
     <div class="why-grid">
-      <div class="why-card reveal"><div class="why-icon">âœ¿</div><div class="why-title">Handmade Just for You</div><div class="why-desc">Every arrangement is crafted by hand with care.</div></div>
-      <div class="why-card reveal"><div class="why-icon">ğŸ“±</div><div class="why-title">M-Pesa Checkout</div><div class="why-desc">Pay instantly via M-Pesa STK push â€” no cash needed.</div></div>
-      <div class="why-card reveal"><div class="why-icon">ğŸšš</div><div class="why-title">Free Delivery</div><div class="why-desc">Free delivery within Nairobi on orders over KSh 3,000.</div></div>
-      <div class="why-card reveal"><div class="why-icon">ğŸ�¨</div><div class="why-title">Custom Requests</div><div class="why-desc">Describe your vision and we'll bring it to life.</div></div>
+      <div class="why-card reveal">
+        <div class="why-icon">&#x273F;</div>
+        <div class="why-title">Handmade Just for You</div>
+        <div class="why-desc">Every arrangement is crafted by hand with care and attention to detail.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">&#x1F4F1;</div>
+        <div class="why-title">M-Pesa Checkout</div>
+        <div class="why-desc">Pay instantly via M-Pesa STK push &#x2014; no cash needed.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">&#x1F69A;</div>
+        <div class="why-title">Free Delivery</div>
+        <div class="why-desc">Free delivery within Nairobi on orders over KSh 3,000.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">&#x1F3A8;</div>
+        <div class="why-title">Custom Requests</div>
+        <div class="why-desc">Describe your vision and we will bring it to life.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- â•�â•�â•� REVIEWS â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- REVIEWS -->
 <section id="reviews" class="section">
   <div class="container">
     <div class="reveal" style="text-align:center">
@@ -318,40 +352,46 @@
   </div>
 </section>
 
-<!-- â•�â•�â•� BOUQUET BUILDER â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- BOUQUET BUILDER -->
 <section id="builder" class="section">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <div class="section-label" style="justify-content:center">Design Your Own</div>
       <h2 class="section-title">Build Your <em>Bouquet</em></h2>
+      <p style="color:var(--muted);margin-top:0.8rem;font-size:0.95rem;font-weight:300">Pick your flowers and we will craft something magical for you.</p>
     </div>
     <div class="builder-box reveal">
-      <div class="builder-title">âœ¿ Custom Bouquet Request</div>
-      <div class="builder-sub">Select your flowers and we'll send you a quote on WhatsApp.</div>
+      <div class="builder-title">&#x273F; Custom Bouquet Request</div>
+      <div class="builder-sub">Select your flowers, fill in your details, and we will send you a quote on WhatsApp.</div>
       <div class="flowers-grid">
-        <div><input type="checkbox" class="flower-check" id="f-roses"      value="Roses">     <label class="flower-label" for="f-roses">     <span>ğŸŒ¹</span>Roses</label></div>
-        <div><input type="checkbox" class="flower-check" id="f-tulips"     value="Tulips">    <label class="flower-label" for="f-tulips">    <span>ğŸŒ·</span>Tulips</label></div>
-        <div><input type="checkbox" class="flower-check" id="f-sunflowers" value="Sunflowers"><label class="flower-label" for="f-sunflowers"><span>ğŸŒ»</span>Sunflowers</label></div>
-        <div><input type="checkbox" class="flower-check" id="f-lavender"   value="Lavender">  <label class="flower-label" for="f-lavender">  <span>ğŸ’œ</span>Lavender</label></div>
-        <div><input type="checkbox" class="flower-check" id="f-lilies"     value="Lilies">    <label class="flower-label" for="f-lilies">    <span>ğŸŒº</span>Lilies</label></div>
-        <div><input type="checkbox" class="flower-check" id="f-mixed"      value="Mixed">     <label class="flower-label" for="f-mixed">     <span>ğŸŒ¸</span>Mixed</label></div>
+        <div><input type="checkbox" class="flower-check" id="f-roses"      value="Roses">     <label class="flower-label" for="f-roses">     <span>&#x1F339;</span>Roses</label></div>
+        <div><input type="checkbox" class="flower-check" id="f-tulips"     value="Tulips">    <label class="flower-label" for="f-tulips">    <span>&#x1F337;</span>Tulips</label></div>
+        <div><input type="checkbox" class="flower-check" id="f-sunflowers" value="Sunflowers"><label class="flower-label" for="f-sunflowers"><span>&#x1F33B;</span>Sunflowers</label></div>
+        <div><input type="checkbox" class="flower-check" id="f-lavender"   value="Lavender">  <label class="flower-label" for="f-lavender">  <span>&#x1F49C;</span>Lavender</label></div>
+        <div><input type="checkbox" class="flower-check" id="f-lilies"     value="Lilies">    <label class="flower-label" for="f-lilies">    <span>&#x1F33A;</span>Lilies</label></div>
+        <div><input type="checkbox" class="flower-check" id="f-mixed"      value="Mixed">     <label class="flower-label" for="f-mixed">     <span>&#x1F338;</span>Mixed</label></div>
       </div>
       <form class="builder-form" id="builderForm">
         <div class="form-row-2">
-          <input type="text"  id="builderName" class="form-input" placeholder="Your name (optional)"/>
-          <input type="date"  id="builderDate" class="form-input"/>
+          <input type="text" id="builderName" class="form-input" placeholder="Your name (optional)"/>
+          <input type="date" id="builderDate" class="form-input"/>
         </div>
         <input type="text" id="builderNotes" class="form-input" placeholder="Special notes (colour, occasion, budget...)"/>
-        <button type="submit" class="btn btn-rose" style="align-self:flex-start">Send Request on WhatsApp ğŸŒ¸</button>
+        <button type="submit" class="btn btn-rose" style="align-self:flex-start">
+          Send Request on WhatsApp &#x1F338;
+        </button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- â•�â•�â•� CARE INSTRUCTIONS â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- CARE INSTRUCTIONS -->
 <section id="care" class="section">
   <div class="container">
-    <div class="reveal"><div class="section-label">Flower Care</div><h2 class="section-title">Keep Your Flowers <em>Fresh</em></h2></div>
+    <div class="reveal">
+      <div class="section-label">Flower Care</div>
+      <h2 class="section-title">Keep Your Flowers <em>Fresh</em></h2>
+    </div>
     <div class="care-tabs">
       <button class="care-tab active" data-target="care-fresh">Fresh Flowers</button>
       <button class="care-tab" data-target="care-dried">Dried Flowers</button>
@@ -359,43 +399,43 @@
     </div>
     <div class="care-content active" id="care-fresh">
       <div class="care-grid">
-        <div class="care-card reveal"><div class="care-icon">ğŸ’§</div><div class="care-title">Change Water Daily</div><div class="care-text">Replace water every day and add a little sugar to keep blooms vibrant longer.</div></div>
-        <div class="care-card reveal"><div class="care-icon">âœ‚ï¸�</div><div class="care-title">Trim the Stems</div><div class="care-text">Cut 1â€“2 cm off stems at an angle every 2 days for better water absorption.</div></div>
-        <div class="care-card reveal"><div class="care-icon">ğŸŒ¡ï¸�</div><div class="care-title">Keep Cool</div><div class="care-text">Avoid direct sunlight and heat. A cool spot extends freshness significantly.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x1F4A7;</div><div class="care-title">Change Water Daily</div><div class="care-text">Replace the water every day and add a little sugar to keep blooms vibrant longer.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x2702;</div><div class="care-title">Trim the Stems</div><div class="care-text">Cut 1&#x2013;2 cm off stems at an angle every 2 days for better water absorption.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x1F321;</div><div class="care-title">Keep Cool</div><div class="care-text">Avoid direct sunlight and heat. A cool spot extends freshness significantly.</div></div>
       </div>
     </div>
     <div class="care-content" id="care-dried">
       <div class="care-grid">
-        <div class="care-card reveal"><div class="care-icon">â˜€ï¸�</div><div class="care-title">Avoid Sunlight</div><div class="care-text">Direct sun will fade colours. Display in a bright but shaded spot.</div></div>
-        <div class="care-card reveal"><div class="care-icon">ğŸ’¨</div><div class="care-title">Dust Gently</div><div class="care-text">Use a soft brush or cool hair dryer setting to remove dust periodically.</div></div>
-        <div class="care-card reveal"><div class="care-icon">ğŸš«</div><div class="care-title">Avoid Moisture</div><div class="care-text">Keep away from bathrooms or kitchens where humidity causes mould.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x2600;</div><div class="care-title">Avoid Sunlight</div><div class="care-text">Direct sun will fade colours. Display in a bright but shaded spot.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x1F4A8;</div><div class="care-title">Dust Gently</div><div class="care-text">Use a soft brush or cool hair dryer setting to remove dust periodically.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x1F6AB;</div><div class="care-title">Avoid Moisture</div><div class="care-text">Keep away from bathrooms or kitchens where humidity causes mould.</div></div>
       </div>
     </div>
     <div class="care-content" id="care-preserved">
       <div class="care-grid">
-        <div class="care-card reveal"><div class="care-icon">ğŸš«</div><div class="care-title">No Water Needed</div><div class="care-text">Preserved roses require no water â€” simply display and enjoy for months.</div></div>
-        <div class="care-card reveal"><div class="care-icon">ğŸ§¤</div><div class="care-title">Handle with Care</div><div class="care-text">Avoid touching petals often â€” natural oils from hands affect preservation.</div></div>
-        <div class="care-card reveal"><div class="care-icon">ğŸ“¦</div><div class="care-title">Store in the Box</div><div class="care-text">When not displaying, keep in original box away from sunlight and humidity.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x1F6AB;</div><div class="care-title">No Water Needed</div><div class="care-text">Preserved roses require no water &#x2014; simply display and enjoy for months.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x1F9E4;</div><div class="care-title">Handle with Care</div><div class="care-text">Avoid touching petals often &#x2014; natural oils from hands affect preservation.</div></div>
+        <div class="care-card reveal"><div class="care-icon">&#x1F4E6;</div><div class="care-title">Store in the Box</div><div class="care-text">When not displaying, keep in original box away from sunlight and humidity.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- â•�â•�â•� INSTAGRAM PLACEHOLDER â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- INSTAGRAM -->
 <section id="instagram">
   <div class="container">
     <div class="section-label" style="justify-content:center">Follow Our Journey</div>
     <h2 class="section-title" style="margin-bottom:0.5rem">Find Us on <em>Instagram</em></h2>
     <p style="color:var(--muted);font-size:0.9rem;font-weight:300">@foreverflowers_ke</p>
     <div class="ig-grid">
-      <div class="ig-cell">ğŸŒ¸</div><div class="ig-cell">ğŸŒ·</div>
-      <div class="ig-cell">ğŸŒ¹</div><div class="ig-cell">ğŸŒº</div>
-      <div class="ig-cell">ğŸŒ»</div><div class="ig-cell">ğŸ’�</div>
+      <div class="ig-cell">&#x1F338;</div><div class="ig-cell">&#x1F337;</div>
+      <div class="ig-cell">&#x1F339;</div><div class="ig-cell">&#x1F33A;</div>
+      <div class="ig-cell">&#x1F33B;</div><div class="ig-cell">&#x1F490;</div>
     </div>
   </div>
 </section>
 
-<!-- â•�â•�â•� CONTACT / FOOTER â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•� -->
+<!-- CONTACT / FOOTER -->
 <footer id="contact">
   <div class="container">
     <div class="contact-layout">
@@ -404,15 +444,15 @@
         <p class="contact-desc">Handmade floral arrangements in Nairobi. Order online with M-Pesa or WhatsApp.</p>
         <div class="contact-links">
           <a href="https://wa.me/254790022080" target="_blank" class="contact-link">
-            <div class="contact-link-icon">ğŸ“�</div>
+            <div class="contact-link-icon">&#x1F4DE;</div>
             <div><div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:2px">WhatsApp Orders</div><div>0790 022 080</div></div>
           </a>
           <a href="mailto:hello@foreverflowers.co.ke" class="contact-link">
-            <div class="contact-link-icon">ğŸ“§</div>
+            <div class="contact-link-icon">&#x1F4E7;</div>
             <div><div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:2px">Email</div><div>hello@foreverflowers.co.ke</div></div>
           </a>
           <div class="contact-link">
-            <div class="contact-link-icon">ğŸ“�</div>
+            <div class="contact-link-icon">&#x1F4CD;</div>
             <div><div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:2px">Location</div><div>Nairobi, Kenya</div></div>
           </div>
         </div>
@@ -420,7 +460,7 @@
       </div>
       <div class="reveal">
         <form class="special-form" id="specialForm">
-          <h3>ğŸŒ¸ Special Request</h3>
+          <h3>&#x1F338; Special Request</h3>
           <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:1rem;font-weight:300">Have a specific occasion or flower in mind?</p>
           <input type="text" id="spName"    class="form-input-dark" placeholder="Your name"/>
           <input type="text" id="spFlowers" class="form-input-dark" placeholder="Occasion / flower preference"/>
@@ -428,18 +468,17 @@
             <input type="date" id="spDate"  class="form-input-dark"/>
             <input type="tel"  id="spPhone" class="form-input-dark" placeholder="Your phone number"/>
           </div>
-          <button type="submit" class="btn btn-rose" style="align-self:flex-start">Send via WhatsApp ğŸŒ¸</button>
+          <button type="submit" class="btn btn-rose" style="align-self:flex-start">Send via WhatsApp &#x1F338;</button>
         </form>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">Â© 2025 Forever Flowers. All rights reserved.</div>
-      <div class="footer-love">Made with <span>ğŸŒ¸</span> in Nairobi, Kenya</div>
+      <div class="footer-copy">&#x00A9; 2025 Forever Flowers. All rights reserved.</div>
+      <div class="footer-love">Made with <span>&#x1F338;</span> in Nairobi, Kenya</div>
     </div>
   </div>
 </footer>
 
-<!-- Scripts -->
 <script src="script.js"></script>
 <script src="checkout.js"></script>
 
