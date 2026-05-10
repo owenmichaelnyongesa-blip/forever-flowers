@@ -337,3 +337,60 @@
   .co-row { grid-template-columns: 1fr; }
   .delivery-toggle { flex-direction: column; }
 }
+
+/* ── MOBILE CART BUTTON FIX ──────────────────────────────── */
+
+/* Keep cart button visible on mobile even when nav-links are hidden */
+@media (max-width: 900px) {
+  .nav-right {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Hide WhatsApp text nav button — floating WA button handles it */
+  .nav-wa { display: none; }
+
+  /* Smaller, rose-coloured cart button on mobile */
+  .cart-nav-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.82rem;
+    background: var(--rose);
+    color: white !important;
+    border-color: var(--rose);
+  }
+
+  .cart-nav-btn:hover {
+    background: var(--rose2);
+    color: white !important;
+  }
+
+  .cart-count {
+    top: -5px; right: -5px;
+    width: 16px; height: 16px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-sidebar { width: 100vw; }
+  .co-row { grid-template-columns: 1fr; }
+  .delivery-toggle { flex-direction: column; }
+
+  /* Stack product buttons on small phones */
+  .product-actions { flex-direction: column; gap: 0.4rem; }
+  .btn-add-cart, .btn-inquire-sm {
+    width: 100%; border-radius: 8px;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Checkout slides up from bottom on mobile */
+  .checkout-overlay { align-items: flex-end; padding: 0; }
+  .checkout-box { border-radius: 20px 20px 0 0; max-height: 95vh; }
+
+  /* Confirmation modal */
+  .confirm-box { padding: 2rem 1.5rem; }
+  .confirm-box h2 { font-size: 1.6rem; }
+}
