@@ -15,7 +15,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_wA_ZJPjqFLZZwHPIxP-SbA_bRL6vedh";
 // ── PAYSTACK ─────────────────────────────────────────────────
 // ✏️  Replace with your Paystack PUBLIC key (starts with pk_)
 // Find at: https://dashboard.paystack.com → Settings → API Keys
-const PAYSTACK_PUBLIC_KEY = "pk_test_97cdfb115923dd2fccd013a8e323a98b92091b29";
+const PAYSTACK_PUBLIC_KEY = "pk_live_ce7b117c9f15d28a9d56b1cae1771d6c8767cb10";
 // Example: "pk_live_xxxxxxxxxxxxxxxxxxxx"
 // Use "pk_test_xxxx" for testing before going live
 
