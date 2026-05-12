@@ -189,44 +189,67 @@ function prevStep() {
 }
 
 // ── PAYSTACK M-PESA ───────────────────────────────────────────
-async function payWithMpesa() {
+function payWithMpesa() {
+  // ── Kept synchronous so browser does NOT block the popup ──
   const name     = document.getElementById("chkName").value.trim();
   const phone    = document.getElementById("chkPhone").value.trim();
   const location = document.getElementById("chkLocation")?.value.trim() || "";
-  const email    = document.getElementById("chkEmail")?.value.trim() || `${phone}@foreverflowers.co.ke`;
+  const email    = document.getElementById("chkEmail")?.value.trim() ||
+                   (phone.replace(/\s/g, "") + "@foreverflowers.co.ke");
 
-  if (!name || !phone) { alert("Please complete your details first."); return; }
+  if (!name || !phone) {
+    alert("Please enter your name and phone number first.");
+    return;
+  }
 
-  const amount = Math.round(window._checkoutTotal * 100); // Paystack uses cents/kobo
+  // ── Format phone to Kenyan international format 254XXXXXXXXX ──
+  let formattedPhone = phone.replace(/\s|-/g, ""); // remove spaces and dashes
+  if (formattedPhone.startsWith("0")) {
+    formattedPhone = "254" + formattedPhone.slice(1); // 0712... → 254712...
+  } else if (formattedPhone.startsWith("+")) {
+    formattedPhone = formattedPhone.slice(1); // +254... → 254...
+  }
+  // Already 254... stays as is
+
+  const amount = Math.round((window._checkoutTotal || 0) * 100); // Paystack uses kobo (KES cents)
   const ref    = "FF-" + Date.now();
 
+  if (amount < 100) {
+    alert("Order total is too low. Minimum is KSh 1.");
+    return;
+  }
+
+  // ── Open Paystack popup synchronously (must not be inside await) ──
   const handler = PaystackPop.setup({
-    key:       PAYSTACK_PUBLIC_KEY,
-    email:     email,
-    amount:    amount,
-    currency:  "KES",
-    ref:       ref,
-    channels:  ["mobile_money"], // M-Pesa only
+    key:      PAYSTACK_PUBLIC_KEY,
+    email:    email,
+    amount:   amount,
+    currency: "KES",
+    ref:      ref,
+    // No "channels" filter — lets Paystack show M-Pesa + card options
+    // Paystack Kenya automatically shows M-Pesa STK push
     metadata: {
       custom_fields: [
-        { display_name: "Customer Name",  variable_name: "customer_name",  value: name  },
-        { display_name: "Phone Number",   variable_name: "phone_number",   value: phone },
-        { display_name: "Delivery Type",  variable_name: "delivery_type",  value: deliveryType },
-        { display_name: "Location",       variable_name: "location",       value: location },
+        { display_name: "Customer Name",  variable_name: "customer_name",  value: name           },
+        { display_name: "Phone",          variable_name: "phone_number",   value: formattedPhone },
+        { display_name: "Delivery",       variable_name: "delivery_type",  value: deliveryType   },
+        { display_name: "Location",       variable_name: "location",       value: location       },
       ]
     },
-    callback: async (response) => {
-      // Payment initiated — save order as pending (webhook confirms it)
-      await saveOrder({
-        name, phone, location,
+    callback: function(response) {
+      // Payment successful — save order then show confirmation
+      saveOrder({
+        name, phone: formattedPhone, location,
         paymentMethod: "mpesa",
-        paystackRef: response.reference,
+        paystackRef:   response.reference,
         paymentStatus: "pending",
+      }).then(() => {
+        showConfirmation("mpesa", response.reference);
       });
-      showConfirmation("mpesa", ref);
     },
-    onClose: () => {
-      // User closed Paystack popup — do nothing
+    onClose: function() {
+      // Customer closed the popup without paying — do nothing
+      console.log("Paystack popup closed by user");
     }
   });
 
@@ -245,7 +268,7 @@ async function payOnDelivery() {
   // Show loading state on the button
   const podOption = document.getElementById("podOption");
   const podArrow  = document.getElementById("podArrow");
-  if (podArrow) podArrow.textContent = "⏳";
+  if (podArrow) podArrow.textContent = "...";
   if (podOption) podOption.style.pointerEvents = "none";
 
   await saveOrder({ name, phone, location, paymentMethod: "pod", paymentStatus: "pod" });
